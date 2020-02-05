@@ -1,6 +1,30 @@
-<section>
+
+
+<section class="section">
   <h1>Hello World</h1>
-  {{#each funkos}}
-    <p>{{name}}</p>
-  {{/each}}
+  <table style="width: 30%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   {{#each funkos}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{category}}</td>
+        <td>
+          <div class="table-actions">
+            <a class="text-primary"><i class="fas fa-search"></i></a>
+            <a class="text-danger"><i class="fas fa-trash-alt"></i></a>
+          </div>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
 </section>

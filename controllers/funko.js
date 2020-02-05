@@ -8,10 +8,18 @@ const Funko = mongoose.model('funko');
 router.get('/', (req, res) => {
   Funko.find()
     .sort({ date: 'desc' })
-    .then(funkos => {
+    .then(data => {
+      const funkos = data.map(({ id, name, details, category, date }) => ({
+        id,
+        name,
+        details,
+        category,
+        date
+      }))
       res.render('index', {
-        funkos,
-      });
+        funkos: funkos,
+      }
+      );
     });
 });
 

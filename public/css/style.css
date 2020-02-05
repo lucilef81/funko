@@ -1,0 +1,161 @@
+:root {
+  --primary: #74b9ff;
+  --primary-hover: #0984e3;
+  --secondary: #fdcb6e;
+  --secondary-hover: #ffeaa7;
+  --success: #55efc4;
+  --success-hover: #00b894;
+  --danger: #ff7675;
+  --danger-hover: #d63031;
+  --dark: #2d3436;
+  --grey: #b2bec3;
+  --light: #dfe6e9;
+  --size: 1rem;
+  --size-large: 2rem;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--light);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--primary);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--dark);
+}
+
+.section {
+  padding: var(--size-large);
+}
+
+table button {
+  margin: 0;
+}
+
+table a {
+  padding: 0 10px;
+}
+
+td {
+  vertical-align: middle;
+  border-bottom-color: var(--grey);
+}
+
+th {
+  border-bottom-color: var(--dark);
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-success {
+  color: var(--success);
+}
+.text-danger {
+  color: var(--danger);
+}
+
+button {
+  padding: 0 15px;
+}
+
+
+button.button-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+button.button-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+button.button-secondary {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+button.button-secondary:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+}
+
+button.button-success {
+  background-color: var(--success);
+  border-color: var(--success);
+}
+button.button-success:hover {
+  background-color: var(--success-hover);
+  border-color: var(--success-hover);
+}
+
+button.button-danger {
+  background-color: var(--danger);
+  border-color: var(--danger);
+}
+button.button-danger:hover {
+  background-color: var(--danger-hover);
+  border-color: var(--danger-hover);
+}
+
+.navbar {
+  padding: var(--size);
+  height: 3.25rem;
+  background-color: var(--dark);
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+
+.navbar ul, .navbar li {
+  margin-bottom: 0;
+}
+
+.navbar-brand {
+  font-size: var(--size-large);
+  margin-right: 5rem;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-item > a {
+  color: #fff;
+}
+.navbar-item > a:hover {
+  color: var(--secondary)
+}
+
+.navbar-item:not(:last-child) {
+  margin-right: var(--size);
+}
+
+.navbar-item:not(:last-child)::after {
+  content: '|';
+  margin-left: var(--size);
+}
+
+.table-actions {
+  display: flex;
+  justify-content: center;
+}
