@@ -6,17 +6,13 @@ require('../models/Funko');
 const Funko = mongoose.model('funko');
 
 router.get('/', (req, res) => {
-  Funko.find({})
+  Funko.find()
     .sort({ date: 'desc' })
-    .then(funko => {
+    .then(funkos => {
       res.render('index', {
-        funko: funko,
+        funkos,
       });
     });
-});
-
-router.get('/add', (req, res) => {
-  res.render('add');
 });
 
 router.get('/edit/:id', (req, res) => {
@@ -25,31 +21,43 @@ router.get('/edit/:id', (req, res) => {
   }).then(funko => {
     res.render('edit', {
       funko: funko,
+    }, { 
+      allowProtoMethodsByDefault: true,
+      allowProtoPropertiesByDefault: true 
     });
   });
 });
 
 router.post('/', (req, res) => {
+  const { name, details, category, date } = req.body
   let errors = [];
-  if (!req.body.name) {
+  if (!name) {
     errors.push({ text: 'Please add a name' });
   }
-  if (!req.body.details) {
+  if (!details) {
     errors.push({ text: 'Please add some details' });
   }
+  if (!category) {
+    errors.push({ text: 'Please add a category' });
+  }
+  
   if (errors.length > 0) {
     res.render('add', {
-      errors: errors,
-      name: req.body.name,
-      details: req.body.details,
+      errors,
+      name,
+      details,
+      category,
+      date
     });
   } else {
-    const newUser = {
-      name: req.body.name,
-      details: req.body.details,
+    const newFunko = {
+      name,
+      details,
+      category,
+      date
     };
-    new Funko(newUser).save().then(funko => {
-      req.flash('success_msg', 'Video idea added');
+    new Funko(newFunko).save().then(funko => {
+      console.log(funko)
       res.redirect('/');
     });
   }
